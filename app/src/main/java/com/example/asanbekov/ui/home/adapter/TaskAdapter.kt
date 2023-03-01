@@ -8,11 +8,13 @@ import com.example.asanbekov.databinding.ItemTaskBinding
 import com.example.asanbekov.model.Task
 
 
-class TaskAdapter : Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter (private val longClickListener:(Task)->Unit):
+    Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
 
-    fun addTask(task : Task ){
-        data.add(0,task)
+    fun addTask(tasks : List<Task> ){
+        data.clear()
+        data.addAll(tasks)
         notifyItemChanged(0)
     }
 
@@ -28,8 +30,14 @@ class TaskAdapter : Adapter<TaskAdapter.TaskViewHolder>() {
     override fun getItemCount(): Int {
         return data.count()
     }
+
     inner  class  TaskViewHolder(private val binding:ItemTaskBinding):ViewHolder(binding.root) {
         fun bind(task: Task) {
+            itemView.setOnLongClickListener {
+                longClickListener(task)
+                false
+
+            }
             binding.title.text=task.title
             binding.description.text=task.description
         }
