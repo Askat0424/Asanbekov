@@ -11,6 +11,7 @@ import com.example.asanbekov.R
 import com.example.asanbekov.databinding.FragmentDashboardBinding
 import com.example.asanbekov.model.Quote
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class DashboardFragment : Fragment() {
@@ -30,7 +31,6 @@ class DashboardFragment : Fragment() {
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        return root
         return binding.root
     }
 

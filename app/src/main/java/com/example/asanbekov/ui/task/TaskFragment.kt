@@ -30,7 +30,7 @@ class TaskFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val task = Task(
                 title = binding.etTitle.text.toString(),
-                description = binding.etDescription.text.toString())
+                description = binding.etDesc.text.toString())
 
             App.db.taskDao().insert(task)
             findNavController().navigateUp()

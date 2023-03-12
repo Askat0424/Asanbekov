@@ -1,6 +1,7 @@
 package com.example.asanbekov
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -12,6 +13,7 @@ import com.example.asanbekov.data.local.Pref
 import com.example.asanbekov.databinding.ActivityMainBinding
 import com.example.asanbekov.ui.home.HomeFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,5 +60,10 @@ class MainActivity : AppCompatActivity() {
             }else supportActionBar?.show()
         }
         navView.setupWithNavController(navController)
+
+        FirebaseMessaging.getInstance().token.addOnSuccessListener {
+            Log.d("aa", it.toString())
+        }
+
     }
 }

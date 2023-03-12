@@ -11,6 +11,7 @@ import com.example.asanbekov.databinding.FragmentNotificationsBinding
 import com.example.asanbekov.model.Quote
 import com.example.asanbekov.ui.notifications.adapter.QuoteAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class NotificationsFragment : Fragment() {
@@ -30,7 +31,6 @@ class NotificationsFragment : Fragment() {
     ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        return root
         return binding.root
     }
 
